@@ -3,7 +3,7 @@ const { TrackUtils } = require("erela.js");
 
 module.exports = {
   name: "loop",
-  description: "Loop the current song",
+  description: "Boucler la chanson en cours",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -22,12 +22,12 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Rien ne joue pour le moment...**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to use this command!**"
+        "❌ | **Vous devez être dans un canal vocal pour utiliser cette commande !**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -35,7 +35,7 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        ":x: | **You must be in the same voice channel as me to use this command!**"
+        ":x: | **Vous devez être dans le même canal vocal que moi pour utiliser cette commande !**"
       );
 
     if (player.trackRepeat) {
@@ -62,12 +62,12 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Rien ne joue pour le moment...**"
         );
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | You must be in a voice channel to use this command."
+          "❌ | Vous devez être dans un canal vocal pour utiliser cette commande."
         );
       if (
         guild.me.voice.channel &&
@@ -75,15 +75,15 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          ":x: | **You must be in the same voice channel as me to use this command!**"
+          ":x: | **Vous devez être dans le même canal vocal que moi pour utiliser cette commande !**"
         );
 
       if (player.trackRepeat) {
         player.setTrackRepeat(false);
-        client.sendTime(interaction, `🔂 \`Disabled\``);
+        client.sendTime(interaction, `🔂 \`Activé\``);
       } else {
         player.setTrackRepeat(true);
-        client.sendTime(interaction, `🔂 \`Enabled\``);
+        client.sendTime(interaction, `🔂 \`Désactivé\``);
       }
       console.log(interaction.data);
     },
