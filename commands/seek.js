@@ -75,11 +75,11 @@ module.exports = {
                     if (!member.voice.channel) return client.sendTime(interaction, "❌ | **Vous devez être dans un canal vocal pour utiliser cette commande.**");
                     if (guild.me.voice.channel && !guild.me.voice.channel.equals(member.voice.channel)) return client.sendTime(interaction, ":x: | **Vous devez être dans le même canal vocal que moi pour utiliser cette commande !**");
                     if (!player) return client.sendTime(interaction, "❌ | **Rien ne joue pour le moment...**");
-                    if (!player.queue.current.isSeekable) return client.sendTime(interaction, "❌ | **I'm not able to seek this song!**");
+                    if (!player.queue.current.isSeekable) return client.sendTime(interaction, "❌ | **Je ne peux pas rechercher cette chanson !**");
                     let SeekTo = client.ParseHumanTime(interaction.data.options[0].value);
                     if (!SeekTo) return client.sendTime(interaction, `**Usage - **\`${GuildDB.prefix}seek <number s/m/h>\` \n**Example -** \`${GuildDB.prefix}seek 2m 10s\``);
                     player.seek(SeekTo * 1000);
-                    client.sendTime(interaction, "✅ | **Successfully moved the song to **", `\`${Seekto}\``);
+                    client.sendTime(interaction, "✅ | **Déplacement réussi de la chanson vers **", `\`${Seekto}\``);
                 },
             },
         ],
