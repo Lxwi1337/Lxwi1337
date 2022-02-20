@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "help",
-  description: "Information about the bot",
+  description: "Information du  bot",
   usage: "[command]",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -33,13 +33,13 @@ module.exports = {
       .setFooter(
         `To get info of each command type ${
           GuildDB ? GuildDB.prefix : client.botconfig.DefaultPrefix
-        }help [Command] | Have a nice day!`
+        }help [Command] | Passe une bonne journée!`
       ).setDescription(`${Commands.join("\n")}
   
   Discord Music Bot Version: v${require("../package.json").version}
   [✨ Support Server](${
     client.botconfig.SupportServer
-  }) | [GitHub](https://github.com/SudhanPlayz/Discord-MusicBot) | [Dashboard](${client.botconfig.Website}) | By [SudhanPlayz](https://github.com/SudhanPlayz)`);
+  }) | [GitHub](https://github.com/Lxwi1337/Lxwi1337) | [Dashboard](${client.botconfig.Website}) | By [Lxwi1337](https://github.com/Lxwi1337)`);
     if (!args[0]) message.channel.send(Embed);
     else {
       let cmd =
@@ -48,7 +48,7 @@ module.exports = {
       if (!cmd)
         return client.sendTime(
           message.channel,
-          `❌ | Unable to find that command.`
+          `❌ | Impossible de trouver cette commande.`
         );
 
       let embed = new MessageEmbed()
@@ -86,7 +86,7 @@ module.exports = {
     options: [
       {
         name: "command",
-        description: "Get information on a specific command",
+        description: "Obtenir des informations sur une commande spécifique",
         value: "command",
         type: 3,
         required: false,
@@ -115,15 +115,15 @@ module.exports = {
         )
         .setColor(client.botconfig.EmbedColor)
         .setFooter(
-          `To get info of each command type ${
+          `Pour obtenir des informations sur chaque type de commande ${
             GuildDB ? GuildDB.prefix : client.botconfig.DefaultPrefix
-          }help [Command] | Have a nice day!`
+          }help [Command] | Bonne journée!`
         ).setDescription(`${Commands.join("\n")}
   
   Discord Music Bot Version: v${require("../package.json").version}
   [✨ Support Server](${
     client.botconfig.SupportServer
-  }) | [GitHub](https://github.com/SudhanPlayz/Discord-MusicBot) | [Dashboard](${client.botconfig.Website}) | By [SudhanPlayz](https://github.com/SudhanPlayz)`);
+  }) | [GitHub](https://github.com/Lxwi1337/Lxwi1337) | [Dashboard](${client.botconfig.Website}) | By [Lxwi1337](https://github.com/Lxwi1337/)`);
       if (!args) return interaction.send(Embed);
       else {
         let cmd =
@@ -134,7 +134,7 @@ module.exports = {
         if (!cmd)
           return client.sendTime(
             interaction,
-            `❌ | Unable to find that command.`
+            `❌ | Impossible de trouver cette commande.`
           );
 
         let embed = new MessageEmbed()
