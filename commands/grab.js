@@ -3,7 +3,7 @@ const prettyMilliseconds = require("pretty-ms");
 
 module.exports = {
   name: "grab",
-  description: "Saves the current song to your Direct Messages",
+  description: "Enregistre la chanson en cours dans vos messages directs",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -22,17 +22,17 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Rien ne joue pour le moment...**"
       );
     if (!player.playing)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Rien ne joue pour le moment...**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to play something!**"
+        "❌ | **Vous devez être dans un canal vocal pour jouer quelque chose !**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -40,7 +40,7 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        ":x: | **You must be in the same voice channel as me to use this command!**"
+        ":x: | **Vous devez être dans le même canal vocal que moi pour utiliser cette commande !**"
       );
     message.author
       .send(
@@ -73,17 +73,17 @@ module.exports = {
           )
           .addField(`🔎 Saved in:`, `<#${message.channel.id}>`)
           .setFooter(
-            `Requested by: ${player.queue.current.requester.tag}`,
+            `Demandé par: ${player.queue.current.requester.tag}`,
             player.queue.current.requester.displayAvatarURL({
               dynamic: true,
             })
           )
       )
       .catch((e) => {
-        return message.channel.send("**:x: Your DMs are disabled**");
+        return message.channel.send("**:x: Vos DM sont désactivés**");
       });
 
-    client.sendTime(message.channel, "✅ | **Check your DMs!**");
+    client.sendTime(message.channel, "✅ | **Vérifiez vos DM !**");
   },
   SlashCommand: {
     /**
@@ -101,17 +101,17 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Rien ne joue pour le moment...**"
         );
       if (!player.playing)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Rien ne joue pour le moment...**"
         );
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **Vous devez être dans un canal vocal pour utiliser cette commande.**"
         );
       if (
         guild.me.voice.channel &&
@@ -119,7 +119,7 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          ":x: | **You must be in the same voice channel as me to use this command!**"
+          ":x: | **Vous devez être dans le même canal vocal que moi pour utiliser cette commande !**"
         );
       try {
         let embed = new MessageEmbed()
@@ -147,17 +147,17 @@ module.exports = {
           )
           .addField(`🔎 Saved in:`, `<#${interaction.channel_id}>`)
           .setFooter(
-            `Requested by: ${player.queue.current.requester.tag}`,
+            `Demandé par: ${player.queue.current.requester.tag}`,
             player.queue.current.requester.displayAvatarURL({
               dynamic: true,
             })
           );
         user.send(embed);
       } catch (e) {
-        return client.sendTime(interaction, "**:x: Your DMs are disabled**");
+        return client.sendTime(interaction, "**:x: Vos DM sont désactivés**");
       }
 
-      client.sendTime(interaction, "✅ | **Check your DMs!**");
+      client.sendTime(interaction, "✅ | **Vérifiez vos DM !**");
     },
   },
 };
