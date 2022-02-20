@@ -10,12 +10,9 @@ Discord.js v13 cassera ce bot, alors ne l'utilisez pas avec lui. Nous avons comm
 - [discord.js@12.5.3](https://www.npmjs.com/package/discord.js/v/12.5.3)
 - [Lavalink Server](https://github.com/freyacodes/Lavalink#server-configuration)
 
-> NOTE: Lavalink is needed for music functionality. You need to have a working Lavalink server to make the bot work.
-
+>REMARQUE : Lavalink est nécessaire pour la fonctionnalité musicale. Vous devez disposer d'un serveur Lavalink fonctionnel pour que le bot fonctionne.
 ## 📝 Tutorial
-
-Un tutoriel a été téléchargé sur YouTube, regardez-le en cliquant sur l'image ci-dessous
-[![Advanced Discord Music Bot with Web Dashboard | Spotify Support](https://img.youtube.com/vi/p4lP96Tiv9s/maxresdefault.jpg)](https://www.youtube.com/watch?v=p4lP96Tiv9s)
+ Contacte moi discord : Lewi.#0004
 
 
 
