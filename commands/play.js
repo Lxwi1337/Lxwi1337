@@ -4,8 +4,8 @@ const prettyMilliseconds = require("pretty-ms");
 
 module.exports = {
   name: "play",
-  description: "Play your favorite songs",
-  usage: "[song]",
+  description: "Jouez vos chansons préférées",
+  usage: "[Musique]",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
     member: [],
@@ -22,7 +22,7 @@ module.exports = {
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to play something!**"
+        "❌ | **Vous devez être dans un canal vocal pour jouer quelque chose !**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -30,7 +30,7 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        ":x: | **You must be in the same voice channel as me to use this command!**"
+        ":x: | **Vous devez être dans un canal vocal pour jouer quelque chose !**"
       );
     let SearchString = args.join(" ");
     if (!SearchString)
@@ -43,7 +43,7 @@ module.exports = {
     if (!CheckNode || !CheckNode.connected) {
       return client.sendTime(
         message.channel,
-        "❌ | **Lavalink node not connected**"
+        "❌ | **Lavalink node n'est pas connecter**"
       );
     }
     const player = client.Manager.create({
@@ -61,7 +61,7 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Rien ne joue pour le moment...**"
       );
 
     if (player.state != "CONNECTED") await player.connect();
@@ -128,13 +128,13 @@ module.exports = {
         if (!player)
           return client.sendTime(
             message.channel,
-            "❌ | **Nothing is playing right now...**"
+            "❌ | **Rien ne joue pour le moment...**"
           );
 
         if (Searched.loadType === "NO_MATCHES")
           return client.sendTime(
             message.channel,
-            "**No matches found for - **" + SearchString
+            "**Aucune correspondance trouvée pour - **" + SearchString
           );
         else if (Searched.loadType == "PLAYLIST_LOADED") {
           player.queue.add(Searched.tracks);
@@ -196,7 +196,7 @@ module.exports = {
       console.log(e);
       return client.sendTime(
         message.channel,
-        "**No matches found for - **" + SearchString
+        "**Aucune correspondance trouvée pour - **" + SearchString
       );
     }
   },
@@ -208,7 +208,7 @@ module.exports = {
         value: "song",
         type: 3,
         required: true,
-        description: "Play music in the voice channel",
+        description: "Jouer de la musique dans le canal vocal",
       },
     ],
     /**
@@ -226,7 +226,7 @@ module.exports = {
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **Vous devez être dans un canal vocal pour utiliser cette commande.**"
         );
       if (
         guild.me.voice.channel &&
@@ -234,13 +234,13 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          ":x: | **You must be in the same voice channel as me to use this command!**"
+          ":x: | **Vous devez être dans le même canal vocal que moi pour utiliser cette commande !**"
         );
       let CheckNode = client.Manager.nodes.get(client.botconfig.Lavalink.id);
       if (!CheckNode || !CheckNode.connected) {
         return client.sendTime(
           interaction,
-          "❌ | **Lavalink node not connected**"
+          "❌ | **Lavalink node n'est pas connecter**"
         );
       }
 
@@ -265,14 +265,14 @@ module.exports = {
             if (!player.queue.current) player.destroy();
             return client.sendError(
               interaction,
-              `❌ | **There was an error while searching**`
+              `❌ | **Une erreur s'est produite lors de la recherche**`
             );
 
           case "NO_MATCHES":
             if (!player.queue.current) player.destroy();
             return client.sendTime(
               interaction,
-              "❌ | **No results were found.**"
+              "❌ | **Aucun resultat n'a été trouvé.**"
             );
           case "TRACK_LOADED":
             player.queue.add(TrackUtils.build(Searched.tracks[0], member.user));
@@ -352,7 +352,7 @@ module.exports = {
             if (!player.queue.current) player.destroy();
             return client.sendError(
               interaction,
-              `:x: | **There was an error while searching**`
+              `:x: | **Une erreur s'est produite lors de la recherche**`
             );
           }
         } catch (err) {
@@ -366,7 +366,7 @@ module.exports = {
             if (!player.queue.current) player.destroy();
             return client.sendTime(
               interaction,
-              "❌ | **No results were found.**"
+              "❌ | **Une erreur s'est produite lors de la recherche.**"
             );
           case "TRACK_LOADED":
             player.queue.add(res.tracks[0]);
