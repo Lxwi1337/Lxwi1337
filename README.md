@@ -17,7 +17,7 @@ Discord.js v13 cassera ce bot, alors ne l'utilisez pas avec lui. Nous avons comm
 
 
 ## 📝 [Support Server](https://discord.gg/XJ2r8w8n3m)
-p.
+
 
 ## 📸 Screenshots
 ![image](https://user-images.githubusercontent.com/99254477/154862972-6a2e17e2-acdd-4aaf-b6ac-88aa9d21f7d3.png)
