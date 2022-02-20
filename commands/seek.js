@@ -3,7 +3,7 @@ const { TrackUtils } = require("erela.js");
 
 module.exports = {
   name: "seek",
-  description: "Seek to a position in the song",
+  description: "Chercher une position dans la chanson",
   usage: "<time s/m/h>",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -22,12 +22,12 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Rien ne joue pour le moment...**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to use this command!**"
+        "❌ | **Vous devez être dans un canal vocal pour utiliser cette commande !**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -35,12 +35,12 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        ":x: | **You must be in the same voice channel as me to use this command!**"
+        ":x: | **Vous devez être dans le même canal vocal que moi pour utiliser cette commande !**"
       );
     if (!player.queue.current.isSeekable)
       return client.sendTime(
         message.channel,
-        "❌ | **I'm not able to seek this song!**"
+        "❌ | **Je ne peux pas chercher cette chanson!**"
       );
     let SeekTo = client.ParseHumanTime(args.join(" "));
     if (!SeekTo)
@@ -72,9 +72,9 @@ module.exports = {
                     const member = guild.members.cache.get(interaction.member.user.id);
                     let player = await client.Manager.get(interaction.guild_id);
                     
-                    if (!member.voice.channel) return client.sendTime(interaction, "❌ | **You must be in a voice channel to use this command.**");
-                    if (guild.me.voice.channel && !guild.me.voice.channel.equals(member.voice.channel)) return client.sendTime(interaction, ":x: | **You must be in the same voice channel as me to use this command!**");
-                    if (!player) return client.sendTime(interaction, "❌ | **Nothing is playing right now...**");
+                    if (!member.voice.channel) return client.sendTime(interaction, "❌ | **Vous devez être dans un canal vocal pour utiliser cette commande.**");
+                    if (guild.me.voice.channel && !guild.me.voice.channel.equals(member.voice.channel)) return client.sendTime(interaction, ":x: | **Vous devez être dans le même canal vocal que moi pour utiliser cette commande !**");
+                    if (!player) return client.sendTime(interaction, "❌ | **Rien ne joue pour le moment...**");
                     if (!player.queue.current.isSeekable) return client.sendTime(interaction, "❌ | **I'm not able to seek this song!**");
                     let SeekTo = client.ParseHumanTime(interaction.data.options[0].value);
                     if (!SeekTo) return client.sendTime(interaction, `**Usage - **\`${GuildDB.prefix}seek <number s/m/h>\` \n**Example -** \`${GuildDB.prefix}seek 2m 10s\``);
