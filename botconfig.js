@@ -1,12 +1,12 @@
 module.exports = {
-  Admins: ["699029898026811454", "258712464823156738"], //Admins of the bot
+  Admins: ["ID", "ID"], //Admins of the bot
   ExpressServer: true, //If you wanted to make the website run or not
   DefaultPrefix: process.env.Prefix || "+", //Default prefix, Server Admins can change the prefix
   Port: 3000, //Which port website gonna be hosted
   SupportServer: "https://discord.gg/XJ2r8w8n3m", //Support Server Link
-  Token: process.env.Token || "NzExNzI5NTczMjkyODAyMTQ4.XsHP0Q.sSJC8DQBx8_aglBZzWPs9Bxf8Kg", //Discord Bot Token
-  ClientID: process.env.Discord_ClientID || "868909264536735754", //Discord Client ID
-  ClientSecret: process.env.Discord_ClientSecret || "BOyiXF4smo5ENhVFIQZB_HtJWcSGGXYo", //Discord Client Secret
+  Token: process.env.Token || "Token", //Discord Bot Token
+  ClientID: process.env.Discord_ClientID || "", //Discord Client ID
+  ClientSecret: process.env.Discord_ClientSecret || "", //Discord Client Secret
   Scopes: ["identify", "guilds", "applications.commands"], //Discord OAuth2 Scopes
   ServerDeafen: true, //If you want bot to stay deafened
   DefaultVolume: 100, //Sets the default volume of the bot, You can change this number anywhere from 1 to 100
