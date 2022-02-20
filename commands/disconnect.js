@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "disconnect",
-  description: "Stop the music and leave the voice channel",
+  description: "Arrêtez la musique et quittez le canal vocal",
   usage: "",
   permissions: {
     channel: ["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"],
@@ -21,12 +21,12 @@ module.exports = {
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel use this command**"
+        "❌ | **Vous devez être dans un canal vocal, utilisez cette commande**"
       );
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Rien ne joue pour le moment...**"
       );
     await client.sendTime(message.channel, ":notes: | **Disconnected!**");
     await message.react("✅");
@@ -48,7 +48,7 @@ module.exports = {
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **Vous devez être dans un canal vocal pour utiliser cette commande.**"
         );
       if (
         guild.me.voice.channel &&
@@ -56,14 +56,14 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          `❌ | **You must be in ${guild.me.voice.channel} to use this command.**`
+          `❌ | **Vous devez être dans un canal vocal ${guild.me.voice.channel}pour utiliser cette commande.**`
         );
 
       let player = await client.Manager.get(interaction.guild_id);
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Rien ne joue pour le moment...**"
         );
       player.destroy();
       client.sendTime(interaction, ":notes: | **Disconnected!**");
